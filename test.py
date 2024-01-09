@@ -18,7 +18,8 @@ def main(page: ft.Page):
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             )
-        ))
+        )
+    )
     page.add(compteurs)
     def minus_click(e):
         txt_number.value = str(int(txt_number.value) - 1)
