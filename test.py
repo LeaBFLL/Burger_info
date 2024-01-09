@@ -1,33 +1,101 @@
-import flet as ft
+from flet import app, icons
+from flet import MainAxisAlignment
+from flet import (
+    Card,
+    Column,
+    Container,
+    Divider,
+    FilledButton,
+    IconButton,
+    Markdown,
+    Row,
+    Text,
+    TextField,
+)
 
-def main(page: ft.Page):
-    page.title = "I Can Haz Cheezburger ?"
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
-
-    items = [1, 2, 3, 4]
-    compteur = []
-    for item in items:
-        compteur.append(
-            ft.Row(
-                [
-                    ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                    txt_number,
-                    ft.IconButton(ft.icons.ADD, on_click=plus_click),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-            )
+def main(page):
+    page.title = "I Can Has Cheezburger?"
+    page.window_width = 400
+    page.window_height = 430
+    page.add(
+        Column(
+            alignment=MainAxisAlignment.CENTER,
+            controls=[
+                Row(
+                    [
+                        Text("🍔", size=50),
+                        Text("5.95 €"),
+                        Container(
+                            width=100,
+                            content=TextField(
+                                value="0", read_only=True
+                            ),
+                        ),
+                        IconButton(icon=icons.ADD),
+                        IconButton(icon=icons.REMOVE),
+                    ],
+                    alignment=MainAxisAlignment.CENTER,
+                ),
+                Row(
+                    [
+                        Text("🍟", size=50),
+                        Text("3.60 €"),
+                        Container(
+                            width=100,
+                            content=TextField(value="0"),
+                        ),
+                        IconButton(icon=icons.ADD),
+                        IconButton(icon=icons.REMOVE),
+                    ],
+                    alignment=MainAxisAlignment.CENTER,
+                ),
+                Row(
+                    [
+                        Text("🥗", size=50),
+                        Text("8.30 €"),
+                        Container(
+                            width=100,
+                            content=TextField(value="0"),
+                        ),
+                        IconButton(icon=icons.ADD),
+                        IconButton(icon=icons.REMOVE),
+                    ],
+                    alignment=MainAxisAlignment.CENTER,
+                ),
+                Row(
+                    [
+                        Text("🥤", size=50),
+                        Text("2.60 €"),
+                        Container(
+                            width=100,
+                            content=TextField(value="0"),
+                        ),
+                        IconButton(icon=icons.ADD),
+                        IconButton(icon=icons.REMOVE),
+                    ],
+                    alignment=MainAxisAlignment.CENTER,
+                ),
+                Divider(),
+                Row(
+                    [
+                        Card(
+                            Container(
+                                Markdown(
+                                    "**TOTAL:** 0.00 €"
+                                ),
+                                padding=10,
+                            )
+                        ),
+                        FilledButton(
+                            text="Buy", icon=icons.PAYMENT
+                        ),
+                    ],
+                    alignment=MainAxisAlignment.SPACE_BETWEEN,
+                ),
+            ],
         )
-    
-    page.add(compteurs)
-    def minus_click(e):
-        txt_number.value = str(int(txt_number.value) - 1)
-        page.update()
+    )
 
-    def plus_click(e):
-        txt_number.value = str(int(txt_number.value) + 1)
-        page.update()
 
-    
-ft.app(target=main)
+app(target=main)
