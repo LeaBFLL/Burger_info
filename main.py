@@ -13,6 +13,8 @@ from flet import (
     TextField,
 )
 
+from product import Product
+
 
 def main(page):
     page.title = "I Can Has Cheezburger?"
@@ -22,60 +24,10 @@ def main(page):
         Column(
             alignment=MainAxisAlignment.CENTER,
             controls=[
-                Row(
-                    [
-                        Text("🍔", size=50),
-                        Text("5.95 €"),
-                        Container(
-                            width=100,
-                            content=TextField(
-                                value="0", read_only=True
-                            ),
-                        ),
-                        IconButton(icon=icons.ADD),
-                        IconButton(icon=icons.REMOVE),
-                    ],
-                    alignment=MainAxisAlignment.CENTER,
-                ),
-                Row(
-                    [
-                        Text("🍟", size=50),
-                        Text("3.60 €"),
-                        Container(
-                            width=100,
-                            content=TextField(value="0"),
-                        ),
-                        IconButton(icon=icons.ADD),
-                        IconButton(icon=icons.REMOVE),
-                    ],
-                    alignment=MainAxisAlignment.CENTER,
-                ),
-                Row(
-                    [
-                        Text("🥗", size=50),
-                        Text("8.30 €"),
-                        Container(
-                            width=100,
-                            content=TextField(value="0"),
-                        ),
-                        IconButton(icon=icons.ADD),
-                        IconButton(icon=icons.REMOVE),
-                    ],
-                    alignment=MainAxisAlignment.CENTER,
-                ),
-                Row(
-                    [
-                        Text("🥤", size=50),
-                        Text("2.60 €"),
-                        Container(
-                            width=100,
-                            content=TextField(value="0"),
-                        ),
-                        IconButton(icon=icons.ADD),
-                        IconButton(icon=icons.REMOVE),
-                    ],
-                    alignment=MainAxisAlignment.CENTER,
-                ),
+                Product("🍔", 5.95),
+                Product("🍟", 3.60),
+                Product("🥗", 8.30),
+                Product("🥤", 2.60),
                 Divider(),
                 Row(
                     [
