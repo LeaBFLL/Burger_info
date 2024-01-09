@@ -7,7 +7,7 @@ def main(page: ft.Page):
     txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
 
     items = [1, 2, 3, 4]
-    for i in range(len(items):
+    for i in range(len(items)):
         page.add(
     ft.Row(
         [
